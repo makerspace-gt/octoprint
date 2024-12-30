@@ -1,0 +1,38 @@
+---
+
+services:
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - octoprint-i3mega
+      - octoprint-cr10
+      - octoprint-sv06
+
+  octoprint-i3mega:
+    image: octoprint/octoprint
+    restart: unless-stopped
+    # devices:
+    #   - /dev/ttyUSB0:/dev/ttyUSB0
+    volumes:
+      - ./octoprint/i3mega/:/octoprint/
+
+  octoprint-cr10:
+    image: octoprint/octoprint
+    restart: unless-stopped
+    # devices:
+    #   - /dev/ttyUSB1:/dev/ttyUSB1
+    volumes:
+      - ./octoprint/cr10/:/octoprint/
+
+  octoprint-sv06:
+    image: octoprint/octoprint
+    restart: unless-stopped
+    # devices:
+    #   - /dev/ttyUSB2:/dev/ttyUSB2
+    volumes:
+      - ./octoprint/sv06/:/octoprint/
