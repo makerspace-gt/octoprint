@@ -1,10 +1,15 @@
 ---
 
+x-common: &octoprint-common
+  image: octoprint/octoprint
+  restart: unless-stopped
+
 services:
 
   nginx:
-    image: nginx:alpine
     container_name: octoprint-nginx
+    <<: *octoprint-common
+    image: nginx:alpine
     ports:
       - "80:80"
     volumes:
@@ -16,27 +21,24 @@ services:
       - octoprint-sv06
 
   octoprint-i3mega:
-    image: octoprint/octoprint
-    restart: unless-stopped
     container_name: octoprint-i3mega
+    <<: *octoprint-common
     # devices:
     #   - /dev/ttyUSB0:/dev/ttyUSB0
     volumes:
       - ./octoprint/i3mega/:/octoprint/
 
   octoprint-cr10:
-    image: octoprint/octoprint
-    restart: unless-stopped
     container_name: octoprint-cr10
+    <<: *octoprint-common
     # devices:
     #   - /dev/ttyUSB1:/dev/ttyUSB1
     volumes:
       - ./octoprint/cr10/:/octoprint/
 
   octoprint-sv06:
-    image: octoprint/octoprint
-    restart: unless-stopped
     container_name: octoprint-sv06
+    <<: *octoprint-common
     # devices:
     #   - /dev/ttyUSB2:/dev/ttyUSB2
     volumes:
