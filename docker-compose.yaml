@@ -3,6 +3,8 @@
 x-common: &octoprint-common
   image: octoprint/octoprint
   restart: unless-stopped
+  healthcheck:
+    test: "curl -f http://localhost/ || exit 1"
 
 services:
 
