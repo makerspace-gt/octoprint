@@ -9,6 +9,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/index.html:/usr/share/nginx/html/index.html:ro
     depends_on:
       - octoprint-i3mega
       - octoprint-cr10

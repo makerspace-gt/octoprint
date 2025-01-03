@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OctoPrint Drucker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #1e1e1e;
+            color: #f0f0f0;
+            /* width: 480px;
+            height: 320px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .printer-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 460px;
+            height: 300px;
+        }
+
+        .printer-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 33%;
+        }
+
+        .printer-link {
+            flex: 1;
+            background: #2e2e2e;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            margin: 0 5px;
+            font-size: 16px;
+            font-weight: bold;
+            height: 100%;
+        }
+
+        .printer-link:hover {
+            transform: translateY(-2px);
+            background: #3e3e3e;
+        }
+
+        .button {
+            background-color: #2e2e2e;
+            color: #f0f0f0;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            width: 100px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .heat-button {
+            background-color: #ff4d4d;
+        }
+
+        .pause-button {
+            background-color: #ffa500;
+        }
+
+        .printer-info {
+            text-align: center;
+        }
+
+        .printer-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .printer-type {
+            font-size: 16px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="printer-grid">
+        <div class="printer-row">
+            <button class="button heat-button" onclick="heatNozzle('i3mega')">Heat<br>250 °C</button>
+            <div class="printer-link">
+                <div class="printer-info">
+                    <div class="printer-name">I3 Mega</div>
+                    <div class="printer-type">Anycubic</div>
+                </div>
+            </div>
+            <button class="button pause-button" onclick="togglePause('i3mega')">Pause</button>
+        </div>
+
+        <div class="printer-row">
+            <button class="button heat-button" onclick="heatNozzle('cr10')">Heat<br>250 °C</button>
+            <div class="printer-link">
+                <div class="printer-info">
+                    <div class="printer-name">CR-10</div>
+                    <div class="printer-type">Creality</div>
+                </div>
+            </div>
+            <button class="button pause-button" onclick="togglePause('cr10')">Pause</button>
+        </div>
+
+        <div class="printer-row">
+            <button class="button heat-button" onclick="heatNozzle('sv06')">Heat<br>250 °C</button>
+            <div class="printer-link">
+                <div class="printer-info">
+                    <div class="printer-name">SV06</div>
+                    <div class="printer-type">Sovol</div>
+                </div>
+            </div>
+            <button class="button pause-button" onclick="togglePause('sv06')">Pause</button>
+        </div>
+    </div>
+
+    <script>
+        function heatNozzle(printer) {
+            // Hier sollte der Code zum Aufheizen der Nozzle eingefügt werden
+            alert(printer + ' Nozzle auf 250°C aufheizen');
+        }
+
+        function togglePause(printer) {
+            // Hier sollte der Code zum Pausieren/Fortsetzen des Drucks eingefügt werden
+            alert(printer + ' Druck pausieren/fortsetzen');
+        }
+    </script>
+</body>
+</html> 
